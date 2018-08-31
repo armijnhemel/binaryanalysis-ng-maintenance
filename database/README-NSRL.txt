@@ -43,9 +43,22 @@ To use the files do the following:
 
 $ psql -U username < nsrl-init.sql
 
-2. copy the CSV files to a directory and make sure that NSRLFile.txt.zip has been unzipped
+2. mount the ISO files and copy the CSV files to a directory and make sure
+that NSRLFile.txt.zip has been unzipped.
 
-3. run nsrlimporter.py:
+The easiest is to mount each file over loopback, for example:
+
+# mkdir /tmp/mnt
+# mount /home/armijn/nsrl/RDS_android.iso /tmp/mnt/
+
+and then as a normal user:
+
+$ cp /tmp/mnt/* /home/armijn/nsrl/android/
+$ unzip NSRLFile.txt.zip
+
+3. Import the data. It is advised to start with the 'modern' dataset, as this is the biggest.
+
+run nsrlimporter.py:
 
 $ python3 nsrlimporter.py -c /path/to/configuration/file -d /path/to/nsrl/directory
 
