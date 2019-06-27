@@ -2,7 +2,7 @@ The NSRL forensics database can be found at:
 
 https://www.nist.gov/software-quality-group/national-software-reference-library-nsrl
 
-The main contents of NSRL are published as multiple ISO images, each containing a few CSV files. NSRL version 2.63 (December 2018) has the following sets:
+The main contents of NSRL are published as multiple ISO images, each containing a few CSV files. NSRL version 2.65 (June 2019) has the following sets:
 
 * modern
 * android
