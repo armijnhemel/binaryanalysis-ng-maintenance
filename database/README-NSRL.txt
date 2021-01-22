@@ -1,11 +1,12 @@
-The NSRL forensics database can be found at:
+The NSRL forensics data sets can be found at:
 
 https://www.nist.gov/software-quality-group/national-software-reference-library-nsrl
 
-The main contents of NSRL are published as multiple ISO images, each containing a few CSV files. NSRL version 2.65 (June 2019) has the following sets:
+The main contents of NSRL are published as multiple ISO images, each containing
+CSV files. NSRL version 2.71 (December 2020) has the following sets:
 
 * modern
-* android
+* android (modern Android applications)
 * iOS
 * legacy
 
@@ -21,11 +22,13 @@ The first line of each file lists the field names.
 Importing the data
 ==================
 
-According to the documentation these CSV files ought to be UTF-8, but they are not and they need to be translated first.
+According to the documentation these CSV files ought to be UTF-8, but experience
+shows that they might not be. It is advised to translate them first.
 
 Then they need to be made searchable by putting them into a database.
 
-The script nsrlimporter.py takes care of both steps.
+The script nsrlimporter.py takes care of both steps (although translation can
+optionally be disabled).
 
 Requirements
 ------------
@@ -64,17 +67,13 @@ $ python3 nsrlimporter.py -c /path/to/configuration/file -d /path/to/nsrl/direct
 
 for example:
 
-$ python3 nsrlimporter.py -c bang.config -d /home/armijn/nsrl/modern/
+$ python3 nsrlimporter.py -c config.yaml -d /home/armijn/nsrl/modern/
 
 4. After the first directory has been processed the indexes should be created to ensure data correctness:
 
 $ psql -U username < nsrl-index.sql
 
-This limitation will be removed in the future.
-
 5. import the other directories in a similar fashion
-
-The database tables are now ready to be used, for example with the plugin for BANG.
 
 Statistics:
 -----------
