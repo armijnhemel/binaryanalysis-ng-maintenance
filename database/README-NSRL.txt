@@ -33,7 +33,7 @@ optionally be disabled).
 Requirements
 ------------
 
-* PostgreSQL version that supports UPSERT (9.5 or higher)
+* PostgreSQL version that supports UPSERT and hash indexes (11 or higher)
 * Python 3
 * psycopg2 2.7.x
 
